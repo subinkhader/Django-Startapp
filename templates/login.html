@@ -16,10 +16,10 @@
   <div
     style="
       padding: 40px 30px;
-      width: 400px;
+      width: 350px;
       background: rgba(255, 255, 255, 0.15);
       border-radius: 12px;
-      border: 2px solid rgb(0 191 255 / 16%);
+      border: 2px solid rgb(0 191 255 / 16%); /* transparent matching color */
       box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
@@ -34,45 +34,15 @@
         font-weight: 800;
       "
     >
-      Register
+      Login
     </h2>
 
     <form
-      action="{% url 'register' %}"
+      action="{% url 'login' %}"
       method="POST"
-      style="display: flex; flex-direction: column; gap: 15px"
+      style="display: flex; flex-direction: column; gap: 20px"
     >
       {% csrf_token %}
-
-      <input
-        type="text"
-        name="first_name"
-        placeholder="First Name"
-        required
-        style="
-          padding: 12px;
-          border: 1px solid rgba(0, 191, 255, 0.5);
-          border-radius: 6px;
-          outline: none;
-          background: rgba(255, 255, 255, 0.2);
-          color: white;
-        "
-      />
-
-      <input
-        type="text"
-        name="last_name"
-        placeholder="Last Name"
-        required
-        style="
-          padding: 12px;
-          border: 1px solid rgba(0, 191, 255, 0.5);
-          border-radius: 6px;
-          outline: none;
-          background: rgba(255, 255, 255, 0.2);
-          color: white;
-        "
-      />
 
       <input
         type="text"
@@ -90,23 +60,8 @@
       />
 
       <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        required
-        style="
-          padding: 12px;
-          border: 1px solid rgba(0, 191, 255, 0.5);
-          border-radius: 6px;
-          outline: none;
-          background: rgba(255, 255, 255, 0.2);
-          color: white;
-        "
-      />
-
-      <input
         type="password"
-        name="password1"
+        name="password"
         placeholder="Password"
         required
         style="
@@ -120,23 +75,8 @@
       />
 
       <input
-        type="password"
-        name="password2"
-        placeholder="Confirm Password"
-        required
-        style="
-          padding: 12px;
-          border: 1px solid rgba(0, 191, 255, 0.5);
-          border-radius: 6px;
-          outline: none;
-          background: rgba(255, 255, 255, 0.2);
-          color: white;
-        "
-      />
-
-      <input
         type="submit"
-        value="Register"
+        value="Login"
         style="
           padding: 12px;
           background: rgb(52 100 116 / 60%);
