@@ -10,18 +10,37 @@
             class="header_content_inner d-flex flex-row align-items-end justify-content-start"
           >
             <div class="logo"><a href="index.html">Travello</a></div>
-            <nav class="main_nav">
-              <ul
-                class="d-flex flex-row align-items-start justify-content-start"
-              >
-                <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="about.html">About us</a></li>
-                <li><a href="#">Services</a></li>
+                     <nav class="main_nav">
+            <ul class="d-flex flex-row align-items-center gap-3" style="list-style: none; margin: 0; padding: 0;">
+              <li class="active"><a href="index.html">Home</a></li>
+              <li><a href="about.html">About us</a></li>
+              <li><a href="#">Services</a></li>
+              {% if user.is_authenticated %}
+                <li>
+                  <a href="accounts/logout/" style="
+                    font-family: 'Oswald', sans-serif;
+                    font-size: 16px;
+                    font-weight: 400;
+                    color: #ffffff;
+                    text-decoration: none;
+                  ">Logout</a>
+                </li>
+              {% else %}
                 <li><a href="accounts/register/">Register</a></li>
                 <li><a href="accounts/login/">Login</a></li>
-              </ul>
-            </nav>
+              {% endif %}
+            </ul>
+          </nav>
+            </div>
 
+              <!-- Right Travello Logo -->
+                {% if user.is_authenticated %}
+                <div class="logo">
+                <a href="#" style="font-size: 16px; font-weight: 100; color: white; text-decoration: none;"
+                onmouseover="this.style.color='#00bfff';"
+                onmouseout="this.style.color='white';">{{user.first_name}} </a>
+                </div>
+                {% endif%}
             <!-- Hamburger -->
 
             <div class="hamburger ml-auto">
