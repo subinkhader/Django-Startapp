@@ -35,8 +35,11 @@ def login(request):
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            auth_login(request, user)
-            return redirect(('/'))
+            if user.is_superuser:  # check if admin
+                return redirect('/admin/')  # redirect admin to Django admin panel
+            else:
+                auth_login(request, user)
+                return redirect(('/'))
         else:
             messages.error(request, 'Invalid username or password')
             return redirect('login.html')    
